@@ -13,7 +13,7 @@ while True:
     print('1-cardápio')
     print('2-Sacola')
     print('3-Entrar em contato')
-    print('4-Criar ou acessar a sua conta: ')
+    print('4-Sair do App')
     
     menu = input('Escola a opção desejada: ')
     
@@ -112,7 +112,7 @@ while True:
                         
                         if finalizar == 'sim':
                             efetuar_compra.append(item_sacola)
-                            efetuar_compra.clear
+                            efetuar_compra.clear()
                             print('Compra finalizada')
                             print('pedidos em andamento...')
                             
