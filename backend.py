@@ -13,6 +13,13 @@ cartao = ''
 verificador = ''
 forma_pag = ''
 key = ''
+endereco = ''
+cad_end = ''
+rua = ''
+num_casa = ''
+cep = ''
+referencia = ''
+complemento = ''
            
 app = input('Iniciar App? S/n: ')
 if app == 'S' or app == 's':
@@ -35,7 +42,7 @@ while True:
             print('1-cardápio')
             print('2-Sacola')
             print('3-Entrar em contato')
-            
+            print('4-Perfil - Em construção')
             
             menu = input('Escola a opção desejada: ')
             
@@ -50,6 +57,7 @@ while True:
                     print('3-Salgados')
                     print('4-Bebidas')
                     print('5-Menu')
+                    
                     cate = input('Escolha a categoria que deseja acessar: ')
                 
                     if cate == '1':
@@ -359,5 +367,29 @@ while True:
                     print('Os nossos contatos disponiveis são:'
                             '\n telefone: (11) 95147-3297'
                             '\n E-mail: Restaurantemineiro@gmail.com')
-                    break
-                continue
+                    
+                elif menu == '4':
+                    print(f'Usuário: {nome}')
+
+                    if len(endereco) == 0:
+                        cad_end = input('Você ainda não possui um endereço, deseja inserir? S/n: ')
+
+                        if cad_end == 's':
+                            rua = input('Digite a rua: ')
+                            num_casa = input('informe o número da casa: ')
+                            cep = input('Informe o CEP: ')
+                            referencia = input('O endereço possui um complemento? S/n: ')
+
+                            if referencia == 's':
+                                complemento = input('informe o completo: ')
+                            elif referencia == 'n':
+                                print('Retornando ao menu...')
+                break
+            continue
+
+
+        
+            
+
+
+
