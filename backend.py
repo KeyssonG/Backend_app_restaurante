@@ -20,6 +20,8 @@ num_casa = ''
 cep = ''
 referencia = ''
 complemento = ''
+taxa = float(4.50)
+
            
 app = input('Iniciar App? S/n: ')
 if app == 'S' or app == 's':
@@ -339,11 +341,29 @@ while True:
                                         print('-'*50)
                                         
                                         print(f'Compra no débito sendo finalizada no cartão {bandeira}{cartao}')
+                                        
+                                        if len(endereco) != 0:
                                 
-                                    
-                                        print('Compra finalizada')
-                                        print('pedidos em andamento...')
-                                        item_sacola.clear()
+                                            endereco_entrega = input(f'O endereço de entrega: {endereco} está correto? S/n:  ')
+                                        
+                                            if endereco_entrega == 's':
+                                        
+                                                print('Compra finalizada')
+                                                print('pedidos em andamento...')
+                                                item_sacola.clear()
+                                        
+                                        else:
+                                            print('ERRO: Você ainda não possui um endereço cadastro')
+                                            print('Insira os dados cadastrais de endereço na opção 4-perfil')
+                                            print('Retornando ao menu...')
+                                            print('-'*50)
+                                            
+                                        
+                                    elif endereco_entrega == 'n':
+                                        
+                                        endereco = input('Insira o endereço correto: ')
+                                        
+                                        
                                     
                                     elif forma_pag == 'C' or forma_pag == 'c':
                                         key = input('Digite a sua senha de 4 digitos: ')
@@ -352,9 +372,14 @@ while True:
                                         
                                         print(f'Compra no crédito sendo finalizada no cartão {bandeira}{cartao}')
                                         
-                                        print('Compra finalizada')
-                                        print('pedidos em andamento...')
-                                        item_sacola.clear()
+                                        endereco_entrega = input(f'O endereço de entrega: {endereco} está correto? S/n:  ')
+                                        
+                                        if endereco_entrega == 's':
+                                        
+                                            print('Compra finalizada')
+                                            print(f'pedidos em andamento para o endereço {endereco} a taxa fixa de entrega é de R${taxa} reais')
+                                            item_sacola.clear()
+                                        
                         break        
                              
                                 
@@ -372,24 +397,26 @@ while True:
                     print(f'Usuário: {nome}')
 
                     if len(endereco) == 0:
-                        cad_end = input('Você ainda não possui um endereço, deseja inserir? S/n: ')
-
-                        if cad_end == 's':
-                            rua = input('Digite a rua: ')
-                            num_casa = input('informe o número da casa: ')
-                            cep = input('Informe o CEP: ')
-                            referencia = input('O endereço possui um complemento? S/n: ')
-
-                            if referencia == 's':
-                                complemento = input('informe o completo: ')
-                            elif referencia == 'n':
-                                print('Retornando ao menu...')
+                        
+                        endereco = input('Você ainda não possui um endereço cadastrado, insira um novo: ')
+                        
+                        print('Retornando ao menu...')
+                    else:
+                        print(f'esse é o seu endereço: {endereco}')
+                        
+                        alterar_endereco = input('Deseja alterar o seu endereço? S/n: ')
+                        
+                        if alterar_endereco == 's':
+                            
+                            endereco = input('informe o seu novo endereço: ')
+                            
+                            print('Novo endereço inserido com sucesso!')
+                            
+                        elif alterar_endereco == 'n':
+                            print('Retornando ao menu...')
                 break
             continue
 
 
         
             
-
-
-
