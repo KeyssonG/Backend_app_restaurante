@@ -328,7 +328,7 @@ while True:
                 print('Alteração cadastral realizada com sucesso!')
 
         if perfil == '2':
-            if len(endereco) >= 0:
+            if len(endereco) <= 0:
                 cad_end = input('Você ainda não possui um endereço, deseja inserir? S/n: ')
                 if cad_end.lower() == 's':
                     rua = input('Digite a rua: ')
