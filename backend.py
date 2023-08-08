@@ -4,6 +4,8 @@ sacola = []
 nome = ''
 endereco = {}
 bandeira = '9874.****.****.'
+complemento = ''
+
 
 app = input('Iniciar App? S/n: ')
 if app.lower() == 's':
@@ -311,25 +313,40 @@ while True:
         
     elif menu == '4':
         print(f'Usuário: {nome}')
-        if not endereco:
-            cad_end = input('Você ainda não possui um endereço, deseja inserir? S/n: ')
-            if cad_end.lower() == 's':
-                rua = input('Digite a rua: ')
-                num_casa = input('Informe o número da casa: ')
-                cep = input('Informe o CEP: ')
-                referencia = input('O endereço possui um complemento? S/n: ')
-                if referencia.lower() == 's':
-                    complemento = input('Informe o complemento: ')
-                elif referencia.lower() == 'n':
-                    print('Endereço cadastrado com sucesso!')
-                endereco = {
-                    'rua': rua,
-                    'numero': num_casa,
-                    'cep': cep,
-                    'complemento': complemento
-                }
-        else:
-            print('Endereço já cadastrado:', endereco)
+
+        print('1- Nome.')
+        print('2- Endereço.')
+
+        perfil = input('Escolha uma opção: ')
+
+        if perfil == '1':
+            alterar_nome = input(f'O seu nome de usuário atual é {nome},deseja alterar? S/n: ')
+
+            if alterar_nome.lower() == 's':
+                nome = input('Insira o seu nome correto: ')
+
+                print('Alteração cadastral realizada com sucesso!')
+
+        if perfil == '2':
+            if len(endereco) >= 0:
+                cad_end = input('Você ainda não possui um endereço, deseja inserir? S/n: ')
+                if cad_end.lower() == 's':
+                    rua = input('Digite a rua: ')
+                    num_casa = input('Informe o número da casa: ')
+                    cep = input('Informe o CEP: ')
+                    referencia = input('O endereço possui um complemento? S/n: ')
+                    if referencia.lower() == 's':
+                        complemento = input('Informe o complemento: ')
+                    elif referencia.lower() == 'n':
+                        print('Endereço cadastrado com sucesso!')
+                    endereco = {
+                        'rua': rua,
+                        'numero': num_casa,
+                        'cep': cep,
+                        'complemento': complemento
+                    }
+            else:
+                print('Endereço já cadastrado:', endereco)
     else:
         print('Opção inválida! Escolha uma opção válida.')
 
